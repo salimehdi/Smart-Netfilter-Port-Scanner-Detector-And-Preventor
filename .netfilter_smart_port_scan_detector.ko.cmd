@@ -1,1 +1,0 @@
-savedcmd_netfilter_smart_port_scan_detector.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.14.0-32-generic/scripts/module.lds -o netfilter_smart_port_scan_detector.ko netfilter_smart_port_scan_detector.o netfilter_smart_port_scan_detector.mod.o .module-common.o

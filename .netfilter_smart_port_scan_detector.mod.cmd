@@ -1,1 +1,0 @@
-savedcmd_netfilter_smart_port_scan_detector.mod := printf '%s\n'   detector/detector.o procfs/proc_handler.o utils/helper.o | awk '!x[$$0]++ { print("./"$$0) }' > netfilter_smart_port_scan_detector.mod
