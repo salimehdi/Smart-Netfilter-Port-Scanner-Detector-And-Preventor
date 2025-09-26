@@ -10,7 +10,6 @@ The module is highly configurable and provides detailed statistics and a list of
 
 - **Intelligent Scan Detection**: Uses heuristics like the number of unique ports contacted, connection success rate, and time windows to identify scanners.
 - **False Positive Reduction**: "Smart filtering" mode can distinguish between a port scan and normal network activity (e.g., a web browser opening multiple connections).
-- **Dynamic Configuration**: All major parameters (thresholds, timers, blocking) can be changed at runtime without reloading the module.
 - **Runtime Monitoring**: Provides real-time statistics and a list of blocked IPs via the `/proc` filesystem.
 - **Automatic Unblocking**: Blocked IPs are automatically unblocked after a configurable duration.
 - **Comprehensive Makefile**: Includes targets for easy compilation, installation, testing, and monitoring.
@@ -57,31 +56,6 @@ dmesg
 make logs      # Shows the last 50 lines
 make watch-logs # Shows logs in real-time
 ```
-
-## Configuration
-
-The module can be configured at runtime by writing to `/proc/netfilter_scanner/config`. You must have root privileges to do this.
-
-### Examples
-
-To change the scan threshold to 20 ports:
-```bash
-echo "scan_threshold 20" | sudo tee /proc/netfilter_scanner/config
-```
-
-You can also use an equals sign:
-```bash
-echo "block_duration=600" | sudo tee /proc/netfilter_scanner/config
-```
-
-### Available Parameters
-
-- **`scan_threshold`**: The number of unique ports an IP must contact within the time_window to be considered a potential scanner. (Default: 15)
-- **`time_window`**: The time period in seconds to monitor an IP for suspicious activity. (Default: 60)
-- **`block_duration`**: The duration in seconds to block a detected scanner's IP address. (Default: 300)
-- **`enable_blocking`**: Set to 1 to block detected scanners, 0 to only log them. (Default: 1)
-- **`enable_logging`**: Set to 1 for more verbose logging of packet activity. (Default: 0)
-- **`enable_smart_filtering`**: Set to 1 to use heuristics to avoid blocking legitimate traffic, 0 for basic detection. (Default: 1)
 
 ## Monitoring
 
