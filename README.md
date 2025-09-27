@@ -18,7 +18,6 @@ The module is highly configurable and provides detailed statistics and a list of
 
 - A Linux system with kernel headers installed (e.g., `linux-headers-$(uname -r)`)
 - `make` and `gcc`
-- `nmap` for testing (optional, but recommended)
 
 ## Compilation
 
@@ -134,7 +133,8 @@ for port in ports:
         result = sock.connect_ex((target, port))
         if result == 0:
             print(f"Port {port}: Open")
-        # We don't need to print 'Closed' for this test
+        else:
+            print(f"Port {port}: Closed")
         sock.close()
     except socket.error as err:
         print(f"Couldn't connect to server: {err}")
