@@ -168,3 +168,10 @@ Once the scanner's IP is blocked, all further connection attempts from it will b
 ## License
 
 This project is licensed under the GPL (GNU General Public License).
+
+## Resources
+
+( Curious?! Want to make similar kernel module yourself? )
+https://linuxcommand.org/index.php    (Linux Scripting)
+https://tldp.org/LDP/lkmpg/           (Kernel Module Programming) (old version [2001])
+https://fennecj.github.io/lkmpg/      (Kernel Module Programming) (updated)
