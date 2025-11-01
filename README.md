@@ -18,7 +18,6 @@ The module is highly configurable and provides detailed statistics and a list of
 
 - A Linux system with kernel headers installed (e.g., `linux-headers-$(uname -r)`)
 - `make` and `gcc`
-- `nmap` for testing (optional, but recommended)
 
 ## Compilation
 
@@ -134,7 +133,8 @@ for port in ports:
         result = sock.connect_ex((target, port))
         if result == 0:
             print(f"Port {port}: Open")
-        # We don't need to print 'Closed' for this test
+        else:
+            print(f"Port {port}: Closed")
         sock.close()
     except socket.error as err:
         print(f"Couldn't connect to server: {err}")
@@ -168,3 +168,13 @@ Once the scanner's IP is blocked, all further connection attempts from it will b
 ## License
 
 This project is licensed under the GPL (GNU General Public License).
+
+## Resources
+
+( Curious?! Want to make similar kernel module yourself? )
+| Resource Name                   | Description                               | Link                                                      |
+|----------------------------------|-------------------------------------------|-----------------------------------------------------------|
+| Linux Command                    | A guide to Linux shell scripting          | [linuxcommand.org](https://linuxcommand.org/index.php)     |
+| Kernel Module Programming (Old)  | An older version of the Kernel Module Programming guide (2001) | [LDP LKMPG (Old)](https://tldp.org/LDP/lkmpg/)             |
+| Kernel Module Programming (Updated) | Frequently updated Kernel Module Programming guide | [Fennecj LKMPG (Updated)](https://fennecj.github.io/lkmpg/) |
+
